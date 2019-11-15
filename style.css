@@ -44,22 +44,56 @@ body {
     background: lightgreen;
     display: flex;
     flex-wrap: wrap;
-    max-width: 600px;
-    max-height: 600px;
+    width: 650px;
+    height: 650px;
     box-shadow: 0 0 7px yellow;
 }
 
-.card-back {
+.card {
+    position: relative;
     width: 25%;
-    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid chocolate;
 }
 
+.card-back,
 .card-front {
-    display: none;
+    width: auto;
+    position: absolute;
+    max-width: 100%;
+    max-width: 100%;
 }
 
 .footer {
     margin-top: 0.5rem;
     color: #9b1bf0;
     text-shadow: 0 0 5px black;
+}
+
+
+/*
+  -----  media query -------
+*/
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .gameboard {
+        max-width: 97vw;
+        max-height: 80vh;
+        align-items: center;
+        justify-content: center;
+    }
+    .card {
+        position: relative;
+        width: 22vw;
+    }
+    .card-back,
+    .card-front {
+        position: absolute;
+        width: 100%;
+    }
 }
