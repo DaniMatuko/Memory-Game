@@ -13,13 +13,23 @@ body {
     background: linear-gradient(#0b3a2aa6, #326279);
 }
 
+.container {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .heading {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
     width: auto;
 }
 
-.heading h2 {
+.heading h3 {
     color: #0b3a2aa6;
     text-shadow: 0 0 10px #c1e6f7;
 }
@@ -30,70 +40,89 @@ body {
     text-shadow: 0 0 5px black;
 }
 
-.container {
-    margin: 0 auto;
-    padding: 0;
-    width: 90%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .gameboard {
+    margin-top: 10%;
     background: lightgreen;
     display: flex;
     flex-wrap: wrap;
-    width: 650px;
-    height: 650px;
+    width: 98vw;
+    height: 60vh;
     box-shadow: 0 0 7px yellow;
+    padding: 8px;
 }
 
 .card {
+    display: flex;
     position: relative;
     width: 25%;
-    display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid chocolate;
+    border-radius: 10px;
+}
+
+.card-front {
+    display: none;
 }
 
 .card-back,
 .card-front {
-    width: auto;
     position: absolute;
-    max-width: 100%;
-    max-width: 100%;
+    top: 0;
+    left: 0;
+    width: 98%;
+    height: 98%;
 }
 
 .footer {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     color: #9b1bf0;
     text-shadow: 0 0 5px black;
 }
 
 
 /*
-  -----  media query -------
+  ----- Tablets-------
 */
 
-@media screen and (max-width: 768px) {
+@media only screen and (min-width: 450px) {
     .container {
-        width: 100%;
+        width: 95%;
     }
     .gameboard {
-        max-width: 97vw;
-        max-height: 80vh;
-        align-items: center;
-        justify-content: center;
+        padding: 10px;
+        margin-top: 5px;
+        width: 80%;
+        height: 80vh;
     }
     .card {
-        position: relative;
-        width: 22vw;
+        margin: 2px;
+        width: calc(25% - 4px);
+        height: calc(25% - 4px);
+        box-shadow: 0 0 10px black;
     }
     .card-back,
     .card-front {
-        position: absolute;
         width: 100%;
+    }
+    .heading,
+    .footer {
+        margin-top: 0.5em;
+    }
+}
+
+
+/*
+  ----- Laptops + Desktosps-------
+*/
+
+@media only screen and (min-width: 960px) {
+    .container {
+        width: 90%;
+    }
+    .gameboard {
+        width: 50%;
+    }
+    .heading h3 {
+        font-size: 1.5rem;
     }
 }
