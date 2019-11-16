@@ -7,10 +7,14 @@ let secondCard;
 let timer;
 let match;
 
-/*identify the card which was clicked*/
-cards.forEach(card => {
 
+/*identify the card which was clicked*/
+
+
+cards.forEach(card => {
     card.addEventListener('click', function(e) {
+
+
         //flip the card
         flipCard(this);
         /*check if it's the first or the second card and if the card already matched*/
@@ -22,8 +26,14 @@ cards.forEach(card => {
             //this is the second card
             secondCard = this;
             hasFlipedcard = false;
-            //checkForMatch
+            //check for Match
             isPair(firstCard, secondCard);
+            //check for win
+            let revealedCards = checkForWin();
+            if (revealedCards) {
+                win();
+            }
+            console.log('revealedCards:' + revealedCards);
         }
     })
 });
@@ -51,4 +61,23 @@ function isPair(firstCard, secondCard) {
         }, 500);
         return false;
     }
+}
+
+/* check for win */
+function checkForWin() {
+    let counter = 0;
+    cards.forEach(card => {
+        if (card.classList.contains('matched')) {
+            counter++;
+        }
+    });
+    console.log(counter);
+    return (counter == cards.length) ? true : false;
+
+}
+
+
+
+function win() {
+    alert("you win");
 }
