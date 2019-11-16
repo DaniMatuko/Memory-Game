@@ -11,16 +11,14 @@ let match;
 cards.forEach(card => {
 
     card.addEventListener('click', function(e) {
-        console.log(e.type);
-
         //flip the card
         flipCard(this);
-        /*check if it's the first or the second card */
-        if (!hasFlipedcard) {
+        /*check if it's the first or the second card and if the card already matched*/
+        if ((!hasFlipedcard) && (!this.classList.contains('matched'))) {
             //this is the first card
             firstCard = this;
             hasFlipedcard = true;
-        } else {
+        } else if (!this.classList.contains('matched')) {
             //this is the second card
             secondCard = this;
             hasFlipedcard = false;
@@ -53,12 +51,4 @@ function isPair(firstCard, secondCard) {
         }, 500);
         return false;
     }
-}
-
-function matched(firstCard, secondCard) {
-    if (!(firstCard.classList.contains('matched')) && (!secondCard.classList.contains('matched'))) {
-        //   card.style.pointerEvents = 'none';
-        return true;
-    }
-    return false;
 }
