@@ -59,6 +59,7 @@ body {
     justify-content: center;
     border-radius: 10px;
     transform-style: preserve-3d;
+    pointer-events: all;
 }
 
 .card-back,
@@ -92,7 +93,13 @@ body {
 .flip {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
-    transition: 1s;
+    transition: 0.5s ease-in-out;
+}
+
+.flipBack {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transition: 1s ease-in;
 }
 
 
