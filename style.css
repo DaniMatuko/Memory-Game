@@ -58,25 +58,41 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-}
-
-.card-front {
-    display: none;
+    transform-style: preserve-3d;
 }
 
 .card-back,
 .card-front {
+    border-radius: 6px;
+    background: white;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 98%;
     height: 98%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .footer {
     margin-top: 1.5rem;
     color: #9b1bf0;
     text-shadow: 0 0 5px black;
+}
+
+
+/*
+  ----- dynamic classes-------
+*/
+
+.card-front {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+.flip {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transition: 1s;
 }
 
 
@@ -102,7 +118,8 @@ body {
     }
     .card-back,
     .card-front {
-        width: 100%;
+        width: 98%;
+        height: 100%;
     }
     .heading,
     .footer {
@@ -121,6 +138,7 @@ body {
     }
     .gameboard {
         width: 50%;
+        height: 85vh;
     }
     .heading h3 {
         font-size: 1.5rem;
