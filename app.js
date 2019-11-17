@@ -4,6 +4,8 @@ const cards = document.querySelectorAll('.card');
 const youWin = document.querySelector('.you-win');
 //restart button
 const restart = document.querySelector('.restart');
+//game board
+const gameBoard = document.querySelector('.gameboard');
 
 /*variabls*/
 let hasFlipedcard;
@@ -11,15 +13,12 @@ let firstCard;
 let secondCard;
 let timer;
 let match;
-
-
+const randomNumbers = [];
+//shuffle for the first time
+shuffleCards();
 /*identify the card which was clicked*/
-
-
 cards.forEach(card => {
-    card.addEventListener('click', function(e) {
-
-
+    card.addEventListener('click', function() {
         //flip the card
         flipCard(this);
         /*check if it's the first or the second card and if the card already matched*/
@@ -53,7 +52,6 @@ function flipBack(card) {
     card.classList.add('flipBack');
 }
 
-
 function isPair(firstCard, secondCard) {
     if (firstCard.dataset.imgname == secondCard.dataset.imgname) {
         firstCard.classList.add('matched');
@@ -76,19 +74,36 @@ function checkForWin() {
             counter++;
         }
     });
-    console.log(counter);
     return (counter == cards.length) ? true : false;
-
 }
-
-
 
 function win() {
     youWin.style.display = 'flex';
 }
 
-
+function hidWinnerMessage() {
+    youWin.style.display = 'none';
+}
 
 restart.addEventListener('click', function() {
-    location.reload();
-})
+    hideAllcards();
+    shuffleCards();
+    hidWinnerMessage();
+    //location.reload();
+});
+
+function randomNumber() {
+    return Math.floor(Math.random() * 16 + 1);
+}
+
+function shuffleCards() {
+    cards.forEach(card => {
+        card.style.order = randomNumber();
+    });
+}
+
+function hideAllcards() {
+    cards.forEach(card => {
+        card.classList.add('flipBack');
+    });
+}

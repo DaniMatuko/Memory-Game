@@ -60,6 +60,7 @@ body {
     border-radius: 10px;
     transform-style: preserve-3d;
     pointer-events: all;
+    order: 1;
 }
 
 .card-back,
