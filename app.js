@@ -79,5 +79,5 @@ function checkForWin() {
 
 
 function win() {
-    alert("you win");
+    prompt("you win");
 }
