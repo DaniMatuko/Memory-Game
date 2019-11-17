@@ -81,17 +81,6 @@ function win() {
     youWin.style.display = 'flex';
 }
 
-function hidWinnerMessage() {
-    youWin.style.display = 'none';
-}
-
-restart.addEventListener('click', function() {
-    hideAllcards();
-    shuffleCards();
-    hidWinnerMessage();
-    //location.reload();
-});
-
 function randomNumber() {
     return Math.floor(Math.random() * 16 + 1);
 }
@@ -101,9 +90,7 @@ function shuffleCards() {
         card.style.order = randomNumber();
     });
 }
-
-function hideAllcards() {
-    cards.forEach(card => {
-        card.classList.add('flipBack');
-    });
-}
+/*if player press Restart*/
+restart.addEventListener('click', function() {
+    location.reload();
+});
