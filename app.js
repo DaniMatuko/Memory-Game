@@ -1,5 +1,10 @@
 /*get all the cards*/
 const cards = document.querySelectorAll('.card');
+//youWin div
+const youWin = document.querySelector('.you-win');
+//restart button
+const restart = document.querySelector('.restart');
+
 /*variabls*/
 let hasFlipedcard;
 let firstCard;
@@ -79,5 +84,11 @@ function checkForWin() {
 
 
 function win() {
-    prompt("you win");
+    youWin.style.display = 'flex';
 }
+
+
+
+restart.addEventListener('click', function() {
+    location.reload();
+})

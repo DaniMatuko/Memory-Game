@@ -103,12 +103,13 @@ body {
 }
 
 .you-win {
-    padding: 15px;
     position: absolute;
-    display: flex;
+    display: none;
+    /*flex*/
     flex-direction: column;
     align-items: center;
     width: 75vw;
+    padding: 15px;
     background: yellowgreen;
     border: 3px solid greenyellow;
     color: darkslategrey;
